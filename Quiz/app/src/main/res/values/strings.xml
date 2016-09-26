@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="question">Question</string>
+    <string name="check">Check</string>
+    <string name="correct">Very good!</string>
+    <string name="incorrect">Incorrect...</string>
+
+    <string name="question_content">What is the capital of Bhutan?</string>
+    <array name="answers">
+        <item>Ougadougou</item>
+        <item>Pnohm Penh</item>
+        <item>Thimphu</item>
+        <item>Zgighiti</item>
+    </array>
+    <integer name="correct_answer">2</integer>
+</resources>
