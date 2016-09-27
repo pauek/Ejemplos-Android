@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name" translatable="false">MultiQuiz</string>
+    <string name="question">Question</string>
+    <string name="check">Check</string>
+    <string name="correct">Very good!</string>
+    <string name="incorrect">Incorrect...</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="prev">Previous</string>
+
+    <array name="all_questions">
+        <item>What is the capital of Bhutan?;Ouagadougou;Phnom Penh;*Thimphu;Zgighiti</item>
+        <item>Pregunta 2;a;*b;c;d</item>
+    </array>
+
+</resources>
