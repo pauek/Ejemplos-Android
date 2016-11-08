@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_edita_nota"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="info.pauek.notas.EditaNotaActivity">
+
+    <EditText
+        android:id="@+id/edit_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/listPreferredItemHeight"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:inputType="text"
+        android:hint="@string/titulo"
+        android:maxLines="1"
+        android:textStyle="bold"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent"
+        />
+
+    <View
+        android:id="@+id/separador"
+        android:layout_below="@+id/edit_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#28000000"
+        />
+
+    <EditText
+        android:id="@+id/edit_texto"
+        android:padding="20dp"
+        android:layout_below="@+id/separador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:gravity="top"
+        android:hint="@string/escribe_la_nota"
+        android:ems="10"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent"
+        />
+
+</RelativeLayout>
