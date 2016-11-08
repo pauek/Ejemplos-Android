@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/listPreferredItemHeight">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:text="Titulo"
+        android:paddingTop="14dp"
+        android:paddingLeft="20dp"
+        android:textSize="16dp"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <TextView
+        android:id="@+id/resumen"
+        android:text="Resumen"
+        android:textSize="12dp"
+        android:paddingTop="34dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:maxLines="1"
+        android:ellipsize="end"
+        />
+</RelativeLayout>
