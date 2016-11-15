@@ -39,7 +39,7 @@
         android:layout_below="@+id/separador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="text|textMultiLine"
         android:gravity="top"
         android:hint="@string/escribe_la_nota"
         android:ems="10"
