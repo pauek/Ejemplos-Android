@@ -1,5 +1,7 @@
 package info.pauek.notas;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 /**
@@ -9,11 +11,9 @@ import java.util.ArrayList;
 public class ListaNotas {
     private static ArrayList<Nota> notas;
 
-    public static ArrayList<Nota> get() {
+    public static ArrayList<Nota> get(Context context) {
         if (notas == null) {
-            notas = new ArrayList<>();
-            notas.add(new Nota("hola", "que tal"));
-            notas.add(new Nota("1234", "567890"));
+            notas = NotasDB.loadNotas(context);
         }
         return notas;
     }
