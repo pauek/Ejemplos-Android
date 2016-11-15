@@ -1,6 +1,5 @@
 package info.pauek.notas;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -13,24 +12,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 public class ListaNotasActivity extends AppCompatActivity {
 
     public static final int NUEVA_NOTA = 0;
     public static final int EDITA_NOTA = 1;
     private NotasAdapter adapter;
-    private ArrayList<Nota> notas;
+
     private ListView lista_notas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_notas);
-
-        notas = new ArrayList<>();
-        notas.add(new Nota("hola", "que tal"));
-        notas.add(new Nota("1234", "567890"));
 
         adapter = new NotasAdapter();
 
@@ -52,8 +45,7 @@ public class ListaNotasActivity extends AppCompatActivity {
                 if (resultCode == RESULT_OK) {
                     String titulo = data.getStringExtra("titulo");
                     String texto = data.getStringExtra("texto");
-                    Nota nota = new Nota(titulo, texto);
-                    notas.add(nota);
+                    ListaNotas.nueva(titulo, texto);
                     adapter.notifyDataSetChanged();
                 }
                 break;
@@ -63,9 +55,7 @@ public class ListaNotasActivity extends AppCompatActivity {
                     String titulo = data.getStringExtra("titulo");
                     String texto = data.getStringExtra("texto");
                     int pos = data.getIntExtra("pos", -1);
-                    Nota nota = notas.get(pos);
-                    nota.setTitulo(titulo);
-                    nota.setTexto(texto);
+                    ListaNotas.modifica(pos, titulo, texto);
                     adapter.notifyDataSetChanged();
                 }
                 break;
@@ -76,7 +66,7 @@ public class ListaNotasActivity extends AppCompatActivity {
     }
 
     private void onEditaNota(int pos) {
-        Nota nota = notas.get(pos);
+        Nota nota = ListaNotas.getNota(pos);
         Intent intent = new Intent(this, EditaNotaActivity.class);
         intent.putExtra("titulo", nota.getTitulo());
         intent.putExtra("texto",  nota.getTexto());
@@ -91,7 +81,7 @@ public class ListaNotasActivity extends AppCompatActivity {
 
     private class NotasAdapter extends ArrayAdapter<Nota> {
         NotasAdapter() {
-            super(ListaNotasActivity.this, R.layout.item_lista_notas, notas);
+            super(ListaNotasActivity.this, R.layout.item_lista_notas, ListaNotas.get());
         }
 
         @NonNull
