@@ -64,6 +64,22 @@ public class EditaNotaActivity extends AppCompatActivity {
                 finish();
                 return true;
 
+            case R.id.borrar:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(R.string.confirmacion);
+                builder.setMessage(R.string.confirma_borra);
+                builder.setPositiveButton(R.string.borra, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        ListaNotas.borra(pos);
+                        setResult(RESULT_OK);
+                        finish();
+                    }
+                });
+                builder.setNegativeButton(android.R.string.cancel, null);
+                builder.create().show();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

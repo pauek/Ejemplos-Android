@@ -87,6 +87,7 @@ public class NotasDB {
         values.put("titulo", titulo);
         values.put("texto", texto);
         long id = db.insert("Notas", null, values);
+        db.close();
 
         resultado.setId(id);
         return resultado;
@@ -103,6 +104,16 @@ public class NotasDB {
         String[] args = { Long.toString(nota.getId()) };
 
         db.update("Notas", values, where, args);
+        db.close();
     }
 
+    public static void borra(Nota nota) {
+        SQLiteDatabase db = getHelper().getWritableDatabase();
+
+        String where = "id = ?";
+        String[] args = { Long.toString(nota.getId()) };
+
+        db.delete("Notas", where, args);
+        db.close();
+    }
 }

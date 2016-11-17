@@ -7,4 +7,7 @@
     <string name="confirma_descarta">Estás seguro de que quieres descartar esta nota?</string>
     <string name="descarta">Descarta</string>
     <string name="sigue_editando">Sigue Editando</string>
+    <string name="borra_nota">Borra esta nota</string>
+    <string name="confirma_borra">Estás seguro de que quieres borrar la nota?</string>
+    <string name="borra">Borra</string>
 </resources>

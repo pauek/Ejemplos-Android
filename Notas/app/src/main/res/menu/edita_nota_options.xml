@@ -6,4 +6,8 @@
         android:id="@+id/guardar"
         app:showAsAction="always"
         android:icon="@android:drawable/ic_menu_save" />
+    <item android:title="@string/borra_nota"
+        android:id="@+id/borrar"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:showAsAction="never" />
 </menu>
