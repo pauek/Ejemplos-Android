@@ -4,10 +4,10 @@
 
     <item android:title="@string/guarda"
         android:id="@+id/guardar"
-        app:showAsAction="always"
-        android:icon="@android:drawable/ic_menu_save" />
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_menu_done" />
     <item android:title="@string/borra_nota"
         android:id="@+id/borrar"
         android:icon="@android:drawable/ic_menu_delete"
-        android:showAsAction="never" />
+        app:showAsAction="never" />
 </menu>
