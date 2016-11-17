@@ -8,18 +8,21 @@ import java.util.ArrayList;
  * Created by pauek on 15/11/2016.
  */
 
+
+// cache
+
 public class ListaNotas {
     private static ArrayList<Nota> notas;
 
-    public static ArrayList<Nota> get(Context context) {
+    public static ArrayList<Nota> get() {
         if (notas == null) {
-            notas = NotasDB.loadNotas(context);
+            notas = NotasDB.loadNotas();
         }
         return notas;
     }
 
     public static void nueva(String titulo, String texto) {
-        Nota nota = new Nota(titulo, texto);
+        Nota nota = NotasDB.nueva(titulo, texto);
         notas.add(nota);
     }
 
@@ -27,6 +30,7 @@ public class ListaNotas {
         Nota nota = notas.get(pos);
         nota.setTitulo(titulo);
         nota.setTexto(texto);
+        NotasDB.actualiza(nota);
     }
 
     public static Nota getNota(int pos) {

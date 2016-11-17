@@ -1,5 +1,6 @@
 package info.pauek.notas;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,6 +14,12 @@ import java.util.ArrayList;
 
 public class NotasDB {
 
+    private static Context context;
+
+    public static void setContext(Context context) {
+        NotasDB.context = context;
+    }
+
     static class NotasDbHelper extends SQLiteOpenHelper {
         private static final String DATABASE_NAME = "notas.db";
         private static final int DATABASE_VERSION = 1;
@@ -24,7 +31,7 @@ public class NotasDB {
                         "texto TEXT" +
                 ")";
 
-        public NotasDbHelper(Context context) {
+        public NotasDbHelper() {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
 
@@ -41,24 +48,27 @@ public class NotasDB {
 
     private static NotasDbHelper helper;
 
-    public static ArrayList<Nota> loadNotas(Context context) {
+    public static NotasDbHelper getHelper() {
+        if (helper == null) {
+            helper = new NotasDbHelper();
+        }
+        return helper;
+    }
+
+    public static ArrayList<Nota> loadNotas() {
         ArrayList<Nota> resultado = new ArrayList<>();
 
-        if (helper == null) {
-            helper = new NotasDbHelper(context);
-        }
-
-        SQLiteDatabase db = helper.getReadableDatabase();
+        SQLiteDatabase db = getHelper().getReadableDatabase();
 
         String[] columnas = { "id", "titulo", "texto" };
 
         Cursor c = db.query("Notas", columnas, null, null, null, null, null);
         if (c != null && c.getCount() > 0) {
             while (c.moveToNext()) {
-                // long id = c.getLong(c.getColumnIndexOrThrow("id"));
+                long id = c.getLong(c.getColumnIndexOrThrow("id"));
                 String titulo = c.getString(c.getColumnIndexOrThrow("titulo"));
                 String texto  = c.getString(c.getColumnIndexOrThrow("texto"));
-                resultado.add(new Nota(titulo, texto));
+                resultado.add(new Nota(id, titulo, texto));
             }
         }
         if (c != null) {
@@ -69,27 +79,30 @@ public class NotasDB {
         return resultado;
     }
 
+    public static Nota nueva(String titulo, String texto) {
+        Nota resultado = new Nota(titulo, texto);
 
+        SQLiteDatabase db = getHelper().getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("titulo", titulo);
+        values.put("texto", texto);
+        long id = db.insert("Notas", null, values);
 
+        resultado.setId(id);
+        return resultado;
+    }
 
+    public static void actualiza(Nota nota) {
+        SQLiteDatabase db = getHelper().getWritableDatabase();
 
+        ContentValues values = new ContentValues();
+        values.put("titulo", nota.getTitulo());
+        values.put("texto", nota.getTexto());
 
+        String where = "id = ?";
+        String[] args = { Long.toString(nota.getId()) };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        db.update("Notas", values, where, args);
+    }
 
 }

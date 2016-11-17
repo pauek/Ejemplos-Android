@@ -25,6 +25,8 @@ public class ListaNotasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_notas);
 
+        NotasDB.setContext(this);
+
         adapter = new NotasAdapter();
 
         lista_notas = (ListView) findViewById(R.id.lista_notas);
@@ -67,7 +69,7 @@ public class ListaNotasActivity extends AppCompatActivity {
     private class NotasAdapter extends ArrayAdapter<Nota> {
         NotasAdapter() {
             super(ListaNotasActivity.this, R.layout.item_lista_notas,
-                  ListaNotas.get(ListaNotasActivity.this));
+                  ListaNotas.get());
         }
 
         @NonNull
