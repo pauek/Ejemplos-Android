@@ -12,3 +12,11 @@ Los ejemplos aparecen en los siguientes [**vídeos**](https://www.youtube.com/pl
 6. ShoppingList1: [Lista de la Compra Parte 1](https://youtu.be/6wtCeodTvg4).
 7. ShoppingList2: [Lista de la Compra Parte 2](https://youtu.be/742V81aJ75o).
 8. ShoppingList3: [Lista de la Compra Parte 3](https://youtu.be/0OI2TWJ2uUk).
+9. Notas:
+   * [Parte 0](https://youtu.be/z1evP0QdKv4).
+   * [Parte 1](https://youtu.be/2pqKpbrfWPU).
+   * [Parte 2](https://youtu.be/iw9SmtjFkTU).
+   * [Parte 3](https://youtu.be/KzpZTc9UXaQ).
+   * [Parte 4](https://youtu.be/GttjKQWcvMc).
+   * [Parte 5](https://youtu.be/3Ol72-kQIeg).
+   * [Parte 6](https://youtu.be/oIOn6_iuRmQ).
