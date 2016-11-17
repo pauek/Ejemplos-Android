@@ -9,6 +9,12 @@ public class Nota {
     private String titulo;
     private String texto;
 
+    public Nota() {
+        this.id = -1;
+        this.titulo = "";
+        this.texto = "";
+    }
+
     public Nota(long id, String titulo, String texto) {
         this.id = id;
         this.titulo = titulo;

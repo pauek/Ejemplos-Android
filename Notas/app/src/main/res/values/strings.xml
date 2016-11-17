@@ -3,4 +3,8 @@
     <string name="titulo">Título</string>
     <string name="escribe_la_nota">Escribe la nota…</string>
     <string name="guarda">Guarda la nota</string>
+    <string name="confirmacion">Confirmación</string>
+    <string name="confirma_descarta">Estás seguro de que quieres descartar esta nota?</string>
+    <string name="descarta">Descarta</string>
+    <string name="sigue_editando">Sigue Editando</string>
 </resources>

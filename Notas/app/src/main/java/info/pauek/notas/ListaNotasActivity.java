@@ -12,6 +12,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/*
+
+TODO: Borrar notas.
+
+TODO: Compartir notas (enviarlas a otra aplciación).
+TODO: Recibir un "share" de otra aplicación.
+
+ */
+
 public class ListaNotasActivity extends AppCompatActivity {
 
     public static final int NUEVA_NOTA = 0;
