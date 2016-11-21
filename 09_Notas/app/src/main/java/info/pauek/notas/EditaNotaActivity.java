@@ -51,10 +51,12 @@ public class EditaNotaActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        String titulo, texto;
+
         switch (item.getItemId()) {
             case R.id.guardar:
-                String titulo = edit_titulo.getText().toString();
-                String texto  = edit_texto.getText().toString();
+                titulo = edit_titulo.getText().toString();
+                texto  = edit_texto.getText().toString();
                 if (pos != -1) {
                     ListaNotas.modifica(pos, titulo, texto);
                 } else {
@@ -78,6 +80,17 @@ public class EditaNotaActivity extends AppCompatActivity {
                 });
                 builder.setNegativeButton(android.R.string.cancel, null);
                 builder.create().show();
+                return true;
+
+            case R.id.compartir:
+                titulo = edit_titulo.getText().toString();
+                texto  = edit_texto.getText().toString();
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_SUBJECT, titulo);
+                intent.putExtra(Intent.EXTRA_TEXT, texto);
+                intent.setType("text/plain");
+                startActivity(intent);
                 return true;
 
             default:

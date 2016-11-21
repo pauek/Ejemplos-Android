@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 /*
 
-TODO: Compartir notas (enviarlas a otra aplciación).
 TODO: Recibir un "share" de otra aplicación.
 
  */
