@@ -11,4 +11,5 @@
     <string name="confirma_borra">Estás seguro de que quieres borrar la nota?</string>
     <string name="borra">Borra</string>
     <string name="compartir_nota">Compartir esta nota</string>
+    <string name="compartir_con">Compartir con...</string>
 </resources>

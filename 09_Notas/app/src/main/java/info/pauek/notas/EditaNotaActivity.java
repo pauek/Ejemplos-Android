@@ -26,12 +26,22 @@ public class EditaNotaActivity extends AppCompatActivity {
         edit_texto = (EditText) findViewById(R.id.edit_texto);
 
         Intent intent = getIntent();
+        String action = intent.getAction();
         pos = intent.getIntExtra("pos", -1);
-        if (pos != -1) {
+        if (action != null && action.equals(Intent.ACTION_SEND)) {
+            // Caso 0: Una app comparte un texto con nosotros.
+            original = new Nota();
+            String titulo = intent.getStringExtra(Intent.EXTRA_SUBJECT);
+            String texto  = intent.getStringExtra(Intent.EXTRA_TEXT);
+            edit_titulo.setText(titulo);
+            edit_texto.setText(texto);
+        } else if (pos != -1) {
+            // Caso 1: Editar una nota desde nuestra app
             original = ListaNotas.getNota(pos);
             edit_titulo.setText(original.getTitulo());
             edit_texto.setText(original.getTexto());
         } else {
+            // Caso 2: Nueva nota desde nuestra app
             original = new Nota();
         }
     }
@@ -90,7 +100,9 @@ public class EditaNotaActivity extends AppCompatActivity {
                 intent.putExtra(Intent.EXTRA_SUBJECT, titulo);
                 intent.putExtra(Intent.EXTRA_TEXT, texto);
                 intent.setType("text/plain");
-                startActivity(intent);
+                Intent chooser =
+                        Intent.createChooser(intent, getResources().getText(R.string.compartir_con));
+                startActivity(chooser);
                 return true;
 
             default:

@@ -12,12 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-/*
-
-TODO: Recibir un "share" de otra aplicación.
-
- */
-
 public class ListaNotasActivity extends AppCompatActivity {
 
     public static final int NUEVA_NOTA = 0;
@@ -44,6 +38,12 @@ public class ListaNotasActivity extends AppCompatActivity {
                 onEditaNota(pos);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.notifyDataSetChanged();
     }
 
     @Override

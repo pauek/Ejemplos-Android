@@ -8,10 +8,13 @@
         android:text="Titulo"
         android:paddingTop="14dp"
         android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:textSize="16dp"
         android:textColor="@android:color/black"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:maxLines="1"
+        android:ellipsize="end"
         />
 
     <TextView
