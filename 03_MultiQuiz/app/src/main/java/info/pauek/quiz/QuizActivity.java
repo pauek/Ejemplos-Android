@@ -1,14 +1,15 @@
 package info.pauek.quiz;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -57,16 +58,11 @@ public class QuizActivity extends AppCompatActivity {
                         else incorrectas++;
                     }
                     String resultado =
-                            String.format("Correctas: %d -- Incorrectas: %d", correctas, incorrectas);
+                            String.format(Locale.getDefault(), "Correctas: %d -- Incorrectas: %d", correctas, incorrectas);
 
                     Toast.makeText(QuizActivity.this, resultado, Toast.LENGTH_LONG).show();
                     finish();
                 }
-                /*
-                for (int i = 0; i < answer_is_correct.length; i++) {
-                    Log.i("pauek", String.format("Respuesta %d: %d (%b)", i, answer[i], answer_is_correct[i]));
-                }
-                */
             }
         });
 
